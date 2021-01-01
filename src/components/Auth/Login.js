@@ -6,8 +6,12 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(`submitted email: 
-          ${email} password: ${password}`);
+    fire
+      .auth()
+      .signInWithEmailAndPassword(email, password)
+      .catch((error) => {
+        console.error("Incorrect username or password");
+      });
   };
   return (
     <div>

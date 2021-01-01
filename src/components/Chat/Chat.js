@@ -7,7 +7,6 @@ import {
   SearchOutlined,
   InsertEmoticon as InsertEmoticonIcon,
   Mic as MicIcon,
-  MessageSharp,
 } from "@material-ui/icons";
 import axios from "../../axios.js";
 

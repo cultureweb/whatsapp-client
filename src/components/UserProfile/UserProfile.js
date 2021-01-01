@@ -1,27 +1,17 @@
-import React, { useState } from "react";
+import React from "react";
 import { Avatar, IconButton } from "@material-ui/core";
 import "./UserProfile.css";
-import UserInfo from "./UserInfo";
-const UserProfile = () => {
-  const [open, setOpen] = useState(false);
+import Modal from "../Modal/Modal";
+import useModal from "../../hooks/useModal";
 
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
-  const handleClose = () => {
-    setOpen(false);
-  };
+const UserProfile = () => {
+  const { isShowing, toggle } = useModal();
   return (
     <div className="userProfile__icon">
-      <IconButton onClick={handleClickOpen}>
+      <IconButton onClick={toggle}>
         <Avatar src="https://www.e-real.fr/wp-content/themes/perso/images/icone-avatar.png" />
       </IconButton>
-      <UserInfo
-        // selectedValue={selectedValue}
-        // signOut={signOut}
-        open={open}
-        onClose={handleClose}
-      />
+      <Modal isShowing={isShowing} hide={toggle} />
     </div>
   );
 };

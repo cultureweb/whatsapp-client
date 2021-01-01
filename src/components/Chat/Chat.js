@@ -7,9 +7,10 @@ import {
   SearchOutlined,
   InsertEmoticon as InsertEmoticonIcon,
   Mic as MicIcon,
+  MessageSharp,
 } from "@material-ui/icons";
 
-const Chat = () => {
+const Chat = ({ messages }) => {
   return (
     <div className="chat">
       <div className="chat__header">
@@ -31,16 +32,21 @@ const Chat = () => {
         </div>
       </div>
       <div className="chat__body">
-        <p className="chat__message">
+        {messages.map((message, id) => (
+          <p
+            key={id}
+            className={`chat__message ${message.received && "chat__receiver"}`}
+          >
+            <span className="chat__name">{message.name}</span>
+            {message.message}
+            <span className="chat__timestamp">{message.timestamp}</span>
+          </p>
+        ))}
+        {/* <p className="chat__message chat__receiver">
           <span className="chat__name">Peter</span>
           This is a message
           <span className="chat__timestamp">{new Date().toUTCString()}</span>
-        </p>
-        <p className="chat__message chat__receiver">
-          <span className="chat__name">Peter</span>
-          This is a message
-          <span className="chat__timestamp">{new Date().toUTCString()}</span>
-        </p>
+        </p> */}
       </div>
       <div className="chat__footer">
         <InsertEmoticonIcon />

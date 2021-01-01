@@ -36,7 +36,7 @@
   justify-content: flex-end;
 }
 
-.modal-close-button {
+.modal-signout-button {
   font-size: 1.4rem;
   font-weight: 700;
   line-height: 1;
@@ -44,6 +44,10 @@
   opacity: 0.3;
   cursor: pointer;
   border: none;
+}
+.modal-signout-button:hover {
+  background-color: rgb(126, 122, 122);
+  color: #fff;
 }
 
 button {

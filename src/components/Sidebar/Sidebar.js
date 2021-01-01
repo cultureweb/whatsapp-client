@@ -6,15 +6,15 @@ import {
   MoreVert as MoreVertIcon,
   SearchOutlined,
 } from "@material-ui/icons";
-import { Avatar, IconButton } from "@material-ui/core";
+import { IconButton } from "@material-ui/core";
 import SidebarChat from "./SidebarChat";
 import UserProfile from "../UserProfile/UserProfile";
 
-const Sidebar = () => {
+const Sidebar = ({ signOut }) => {
   return (
     <div className="sidebar">
       <div className="sidebar__header">
-        <UserProfile />
+        <UserProfile signOut={signOut} />
         {/* <Avatar src="https://avatars2.githubusercontent.com/u/35487627?s=460&u=0f7f49fea6388f0991868e3721887405ccbe8033&v=4" /> */}
         <div className="sidebar__headerRight">
           <IconButton>

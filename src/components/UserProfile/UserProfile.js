@@ -4,14 +4,14 @@ import "./UserProfile.css";
 import Modal from "../Modal/Modal";
 import useModal from "../../hooks/useModal";
 
-const UserProfile = () => {
+const UserProfile = ({ signOut }) => {
   const { isShowing, toggle } = useModal();
   return (
     <div className="userProfile__icon">
       <IconButton onClick={toggle}>
         <Avatar src="https://www.e-real.fr/wp-content/themes/perso/images/icone-avatar.png" />
       </IconButton>
-      <Modal isShowing={isShowing} hide={toggle} />
+      <Modal isShowing={isShowing} hide={toggle} signOut={signOut} />
     </div>
   );
 };

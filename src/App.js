@@ -15,6 +15,11 @@ function App() {
     return user ? setIsLoggedIn(true) : setIsLoggedIn(false);
   });
 
+  const signOut = () => {
+    console.log("logout!!!!");
+    fire.auth().signOut();
+  };
+
   console.log("logged in?", isLoggedIn);
 
   const [messages, setMessages] = useState([]);
@@ -55,7 +60,7 @@ function App() {
           </>
         ) : (
           <div className="app__body">
-            <SideBar />
+            <SideBar signOut={signOut} />
             <Chat messages={messages} />
           </div>
         )}

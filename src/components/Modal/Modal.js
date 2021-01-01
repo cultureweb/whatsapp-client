@@ -4,11 +4,7 @@ import IconButton from "@material-ui/core/IconButton";
 import CloseIcon from "@material-ui/icons/Close";
 import "./Modal.css";
 
-const signout = () => {
-  console.log("signout");
-};
-
-const Modal = ({ isShowing, hide }) =>
+const Modal = ({ isShowing, hide, signOut }) =>
   isShowing
     ? ReactDOM.createPortal(
         <React.Fragment>
@@ -28,12 +24,12 @@ const Modal = ({ isShowing, hide }) =>
               </div>
               <button
                 type="button"
-                // className="modal-close-button"
+                className="modal-signout-button"
                 data-dismiss="modal"
                 aria-label="Close"
-                onClick={signout}
+                onClick={signOut}
               >
-                <p>signout</p>
+                <p>signOut</p>
               </button>
             </div>
           </div>

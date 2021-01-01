@@ -4,8 +4,19 @@ import SideBar from "./components/Sidebar/Sidebar";
 import Chat from "./components/Chat/Chat";
 import Pusher from "pusher-js";
 import axios from "./axios";
+import fire from "./fire.js";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Login from "./components/Auth/Login";
 
 function App() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  fire.auth().onAuthStateChanged((user) => {
+    return user ? setIsLoggedIn(true) : setIsLoggedIn(false);
+  });
+
+  console.log("logged in?", isLoggedIn);
+
   const [messages, setMessages] = useState([]);
 
   useEffect(() => {
@@ -33,10 +44,22 @@ function App() {
 
   return (
     <div className="App">
-      <div className="app__body">
-        <SideBar />
-        <Chat messages={messages} />
-      </div>
+      <Router>
+        {!isLoggedIn ? (
+          <>
+            <Switch>
+              <Route path="/">
+                <Login />
+              </Route>
+            </Switch>
+          </>
+        ) : (
+          <div className="app__body">
+            <SideBar />
+            <Chat messages={messages} />
+          </div>
+        )}
+      </Router>
     </div>
   );
 }

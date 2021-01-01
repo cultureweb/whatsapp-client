@@ -8,12 +8,13 @@ import {
 } from "@material-ui/icons";
 import { Avatar, IconButton } from "@material-ui/core";
 import SidebarChat from "./SidebarChat";
+import UserProfile from "../UserProfile/UserProfile";
 
 const Sidebar = () => {
   return (
     <div className="sidebar">
       <div className="sidebar__header">
-        <Avatar src="https://www.e-real.fr/wp-content/themes/perso/images/icone-avatar.png" />
+        <UserProfile />
         {/* <Avatar src="https://avatars2.githubusercontent.com/u/35487627?s=460&u=0f7f49fea6388f0991868e3721887405ccbe8033&v=4" /> */}
         <div className="sidebar__headerRight">
           <IconButton>
